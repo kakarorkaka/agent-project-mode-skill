@@ -1,0 +1,8 @@
+interface:
+  display_name: "Project Mode"
+  short_description: "Lightweight solo-builder workflow with checkpoints and repo-native memory."
+  brand_color: "#2563EB"
+  default_prompt: "Use $project-mode to run this project with lightweight workflow modes, verification, and repo-native project memory."
+
+policy:
+  allow_implicit_invocation: true

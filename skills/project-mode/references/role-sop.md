@@ -10,6 +10,14 @@ Compatibility aliases:
 - Verifier = QA
 - Shipper = Ops
 
+Mode and lens pairing:
+
+- Planner pairs with Product Lens when requirements, scope, priority, or acceptance need professional judgment.
+- Designer pairs with Interface Lens when UI, UX, states, copy, responsive behavior, or design review matters.
+- Builder pairs with Engineering Lens when implementation is non-trivial or risky.
+- Verifier pairs with Verification Lens when evidence, regression checks, or release confidence matters.
+- Shipper pairs with Verification Lens and Engineering Lens when deployment risk, health checks, or rollback matter.
+
 ## Planner
 
 Use for intake, planning, prioritization, and final reporting.
@@ -22,7 +30,7 @@ Formal intake output:
 - Proposed tasks.
 - Acceptance criteria.
 - Risks.
-- Explicit "start?" gate.
+- Explicit "start?" gate when ambiguity or risk is meaningful.
 
 ## Designer
 

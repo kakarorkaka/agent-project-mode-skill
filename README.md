@@ -2,7 +2,7 @@
 
 Lightweight project workflow for solo builders using AI coding agents.
 
-Agent Project Mode Skill gives Codex or Claude Code a concrete project operating loop: classify the task, plan only when useful, build in safe slices, verify explicitly, and leave resumable state inside your repository.
+Agent Project Mode Skill gives Codex or Claude Code a concrete project operating loop: classify the task, apply expert lenses when useful, build in safe slices, verify explicitly, and leave resumable state inside your repository.
 
 English | [中文](#中文)
 
@@ -24,6 +24,7 @@ This is not just a set of project files. The files are the persistence layer. Th
 
 - **Task routing**: decide whether a request should be handled as Fast Track, Guided Flow, or Deep Flow.
 - **Work modes**: move through Planner, Designer, Builder, Verifier, and Shipper responsibilities without pretending there is a full team.
+- **Expert lenses**: apply Product, Interface, Engineering, and Verification standards when the task needs deeper judgment.
 - **Acceptance discipline**: turn feature requests into clear acceptance criteria before implementation when the task needs it.
 - **Verification strategy**: choose what should be checked before editing, then run a separate verification pass for medium and high-risk work.
 - **Deep task decomposition**: split broad work into workstreams, dependencies, checkpoints, and safe implementation slices.
@@ -45,9 +46,21 @@ Project Mode uses these as work modes, not personas. One agent can move between 
 | **Verifier** | Define test scope, challenge assumptions, and look for regressions or missed files. | Confirming the work is actually complete. |
 | **Shipper** | Handle deployment, health checks, release notes, and rollback notes. | Safely delivering changes when release risk matters. |
 
+## Expert Lenses
+
+Work modes decide the phase. Expert lenses add professional standards without turning the agent into a fake team.
+
+| Lens | Adds Professional Judgment For | Use When |
+| --- | --- | --- |
+| **Product** | User, problem, scope, non-goals, acceptance criteria, product risk. | A request is ambiguous, feature-sized, or needs prioritization. |
+| **Interface** | User flow, states, copy, responsive behavior, accessibility, design review. | Work touches UI, UX, frontend flows, or user-facing copy. |
+| **Engineering** | Existing patterns, contracts, implementation slices, reversibility, tests. | Implementation is non-trivial or touches API, data, auth, integrations, migrations, or refactors. |
+| **Verification** | Acceptance coverage, regression surfaces, evidence, known gaps, confidence. | Work is ready to check, risky, bug-related, or release-bound. |
+
 ## What You Get
 
 - A lightweight execution system for routing, planning, building, verifying, shipping, and resuming work.
+- Optional expert lens playbooks for product, interface, engineering, and verification judgment.
 - `AGENTS.md` for shared coding-agent rules, commands, and guardrails.
 - `CLAUDE.md` for Claude Code memory that imports `AGENTS.md`.
 - `.project-mode/project.md` for stable product context.
@@ -235,7 +248,7 @@ Project patrol
 
 Agent Project Mode Skill 是一个面向个人开发者的轻量项目工作流，适用于 Codex 和 Claude Code 等 AI 编程 Agent。
 
-它的目标不是变成复杂的项目管理系统，而是给 AI Agent 装上一套具体的项目执行回路：先判断任务复杂度，只在必要时规划，按安全的小步实现，明确验证，并把可恢复的状态留在仓库里。
+它的目标不是变成复杂的项目管理系统，而是给 AI Agent 装上一套具体的项目执行回路：先判断任务复杂度，必要时启用专业视角，按安全的小步实现，明确验证，并把可恢复的状态留在仓库里。
 
 ## 为什么需要它
 
@@ -255,6 +268,7 @@ Agent Project Mode 用一套轻量流程解决这些问题，不把个人项目�
 
 - **任务路由**：先判断请求应该走 Fast Track、Guided Flow 还是 Deep Flow。
 - **工作模式**：在 Planner、Designer、Builder、Verifier、Shipper 之间切换职责，但不假装你真的有一个完整团队。
+- **专业视角**：在需要更深判断时启用 Product、Interface、Engineering、Verification Lens。
 - **验收纪律**：把正式需求先转成清晰的验收标准，再进入实现。
 - **验证策略**：在动手前想清楚要验证什么，中高风险任务实现后再做独立验证。
 - **深度任务拆解**：把大任务拆成工作流、依赖、检查点和安全的小步实现。
@@ -276,9 +290,21 @@ Project Mode 把这些当成工作模式，而不是虚拟人格。一个 Agent 
 | **Verifier** | 定义测试范围、挑战假设、检查回归和遗漏文件。 | 确认任务不只是“写完了”，而是真的完成。 |
 | **Shipper** | 处理部署、健康检查、发布说明和回滚说明。 | 在有发布风险时安全交付改动。 |
 
+## 专业视角
+
+工作模式决定当前阶段，专业视角提供专业判断标准。它不会把 Agent 变成一个虚拟团队，而是让同一个 Agent 在关键时刻用更专业的检查方式工作。
+
+| 视角 | 提供什么判断 | 适合场景 |
+| --- | --- | --- |
+| **Product** | 用户、问题、范围、非目标、验收标准和产品风险。 | 需求模糊、功能较大，或需要判断优先级。 |
+| **Interface** | 用户流程、界面状态、文案、响应式、可访问性和设计检查。 | 涉及 UI、UX、前端流程或用户可见文案。 |
+| **Engineering** | 现有模式、接口/数据边界、实现切片、可回滚性和测试。 | 实现不简单，或涉及 API、数据、权限、集成、迁移、重构。 |
+| **Verification** | 验收覆盖、回归面、验证证据、已知缺口和信心等级。 | 准备检查、风险较高、bug 修复或发布前。 |
+
 ## 你会得到什么
 
 - 一套轻量执行系统：路由、规划、实现、验证、交付和恢复。
+- 产品、界面、工程、验证四个可选专业视角。
 - `AGENTS.md`：给所有编程 Agent 看的项目规则、命令和边界。
 - `CLAUDE.md`：给 Claude Code 的项目记忆文件，会导入 `AGENTS.md`。
 - `.project-mode/project.md`：稳定的产品和项目上下文。

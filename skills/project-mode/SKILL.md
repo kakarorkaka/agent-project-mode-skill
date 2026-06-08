@@ -1,6 +1,6 @@
 ---
 name: project-mode
-description: Use when the user wants an AI coding agent such as Codex or Claude Code to run a repository with a lightweight solo-builder project workflow, including phrases like 启用项目模式, Project Mode, project mode, 正式需求, 任务看板, Fast Track, deep task, design review, checkpoint, acceptance criteria, resume work, or project patrol. Provides work modes, repo-native state files, lightweight execution gates, verification, and pause/resume discipline.
+description: Use when the user wants an AI coding agent such as Codex or Claude Code to run a repository with a lightweight solo-builder project workflow, including phrases like 启用项目模式, Project Mode, project mode, 正式需求, 任务看板, Fast Track, deep task, design review, checkpoint, acceptance criteria, expert lens, product review, UX review, engineering review, resume work, or project patrol. Provides work modes, expert lenses, repo-native state files, lightweight execution gates, verification, and pause/resume discipline.
 metadata:
   short-description: Lightweight project workflow for solo builders
 ---
@@ -21,6 +21,26 @@ Run the current coding agent as a disciplined solo builder. Use work modes inste
 - If the project already uses older labels such as PM, PD, Dev, QA, and Ops, treat them as aliases for the modes above.
 
 Speak to the user as one collaborator. Use mode labels only in artifacts or when phase transitions benefit from clarity.
+
+## Expert Lenses
+
+Use expert lenses as professional standards, not characters:
+
+- **Product Lens**: requirements, scope, prioritization, acceptance criteria, and product risk.
+- **Interface Lens**: user flow, UI states, interaction, copy, responsive behavior, accessibility, and design review.
+- **Engineering Lens**: implementation strategy, existing project patterns, contracts, risk, reversibility, and tests.
+- **Verification Lens**: acceptance coverage, regression surfaces, evidence, known gaps, and confidence.
+
+Work modes decide the phase of work. Expert lenses decide which professional checklist should be applied.
+
+Before substantial Guided Flow or Deep Flow work, read `references/lens-routing.md`, then load only the relevant lens files:
+
+- Read `references/product-lens.md` for new features, ambiguous requirements, prioritization, scope, or acceptance criteria.
+- Read `references/interface-lens.md` for UI, UX, copy, frontend flows, responsive behavior, or design review.
+- Read `references/engineering-lens.md` for non-trivial implementation, architecture, API/data contracts, migrations, integrations, auth, performance, or refactors.
+- Read `references/verification-lens.md` for verification planning, bug review, post-implementation review, release readiness, or high-risk regression checks.
+
+Do not run every lens by default. Use the smallest set of lenses that protects quality.
 
 ## First Step In A Project
 
@@ -70,6 +90,7 @@ Do not upgrade work into Deep Flow just to feel more formal. Use the smallest wo
 Borrow only the useful parts of dynamic execution while staying lightweight:
 
 - **Complexity first**: before substantial work, judge scope, risk, surface area, and reversibility.
+- **Expertise on demand**: apply Product, Interface, Engineering, and Verification lenses only when the task benefits from that professional standard.
 - **Decompose explicitly**: when a task is broad, split it into workstreams with dependencies.
 - **Parallelize only when clean**: use parallel investigation only when results can be merged safely. Otherwise keep the workstreams explicit and execute them one by one.
 - **Verify separately**: for medium and high-risk work, do a second-pass verification after implementation instead of relying on the build pass alone.
@@ -100,6 +121,11 @@ Borrow only the useful parts of dynamic execution while staying lightweight:
 - For schema and status rules, read `references/board-schema.md`.
 - For project file meanings and templates, read `references/project-files.md`.
 - For detailed mode handoffs, read `references/role-sop.md`.
+- For expert lens routing, read `references/lens-routing.md`.
+- For product judgment, read `references/product-lens.md`.
+- For interface judgment, read `references/interface-lens.md`.
+- For engineering judgment, read `references/engineering-lens.md`.
+- For verification judgment, read `references/verification-lens.md`.
 
 ## Useful Commands
 
